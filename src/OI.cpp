@@ -2,9 +2,9 @@
 
 OI::OI()
 {
-	stick = new Joystick(1);
+	this->stick= new Joystick(JOYSTICK_CHANNEL);
 }
 
-OI::getJoystick(){
+Joystick* OI::getJoystick(){
 	return this->stick;
 }

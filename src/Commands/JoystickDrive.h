@@ -1,15 +1,15 @@
-#ifndef DriveWithJoystick_H
-#define DriveWithJoystick_H
+#ifndef JoystickDrive_H
+#define JoystickDrive_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class DriveWithJoystick: public CommandBase
+class JoystickDrive: public CommandBase
 {
 private:
-	Joystick *stick;
+	Joystick* stick;
 public:
-	DriveWithJoystick(Joystick *stick);
+	JoystickDrive(Joystick* stick);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
