@@ -6,9 +6,10 @@
 class OI
 {
 private:
-
+	Joystick *stick;
 public:
 	OI();
+	Joystick getJoystick();
 };
 
 #endif
