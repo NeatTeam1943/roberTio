@@ -5,7 +5,7 @@
 
 Chassis::Chassis() :
 	Subsystem("Chassis") {
-	drive = new RobotDrive(RIGHT_MOTOR, LEFT_MOTOR);
+	this->drive = new RobotDrive(RIGHT_MOTOR, LEFT_MOTOR);
 }
 
 void Chassis::InitDefaultCommand() {

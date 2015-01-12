@@ -2,9 +2,9 @@
 
 OI::OI()
 {
-	this->stick= new Joystick(JOYSTICK_CHANNEL);
+	this->stick= new Xbox360(CONTROLLER_CHANNEL);
 }
 
-Joystick* OI::getJoystick(){
+Xbox360* OI::getJoystick(){
 	return this->stick;
 }

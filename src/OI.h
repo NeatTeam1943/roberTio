@@ -3,14 +3,15 @@
 
 #include "WPILib.h"
 #include "RobotMap.h"
+#include "Xbox/Xbox360.h"
 
 class OI
 {
 private:
-	Joystick *stick;
+	Xbox360 *stick;
 public:
 	OI();
-	Joystick* getJoystick();
+	Xbox360* getJoystick();
 };
 
 #endif
