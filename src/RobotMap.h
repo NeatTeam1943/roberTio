@@ -5,6 +5,6 @@
 
 const int LEFT_MOTOR = 0;
 const int RIGHT_MOTOR = 1;
-const int JOYSTICK_CHANNEL = 1;
+const int JOYSTICK_CHANNEL = 0;
 
 #endif
