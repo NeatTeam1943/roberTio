@@ -2,12 +2,12 @@
 #define Grabber_H
 
 #include "Commands/Subsystem.h"
+#include "../CommandBase.h"
 #include "WPILib.h"
 
 class Grabber: public Subsystem {
 private:
 	DoubleSolenoid *pistons;
-	Compressor *comp;
 
 public:
 	Grabber();
@@ -15,9 +15,6 @@ public:
 	void SetPistonsState(DoubleSolenoid::Value value);
 	void SwitchPistonsState();
 	DoubleSolenoid::Value GetPistonsState();
-	void SetCompressor(bool on);
-	int GetCompPressure();
-	void AutoCompressor();
 };
 
 #endif

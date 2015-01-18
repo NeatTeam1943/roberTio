@@ -5,7 +5,7 @@ Grabber::Grabber() :
 		Subsystem("Grabber") {
 	this->pistons = new DoubleSolenoid(GRABBER_PISTONS_FIRST,
 			GRABBER_PISTONS_SECOND);
-	this->comp = new Compressor(GRABBER_COMPRESSOR);
+	this->comp = CommandBase::oi->GetComp();
 }
 
 void Grabber::InitDefaultCommand() {
@@ -25,18 +25,4 @@ void Grabber::SwitchPistonsState() {
 		this->pistons->Set(DoubleSolenoid::Value::kReverse);
 	else if (GetPistonsState() == DoubleSolenoid::Value::kReverse)
 		this->pistons->Set(DoubleSolenoid::Value::kForward);
-}
-
-void Grabber::SetCompressor(bool on) {
-	if (on)
-		this->comp->Start();
-	else
-		this->comp->Stop();
-}
-
-void Grabber::AutoCompressor() {
-	if (this->comp->GetCompressorCurrent() < 120)
-		this->comp->Start();
-	else
-		this->comp->Stop();
 }

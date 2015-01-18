@@ -10,9 +10,12 @@ class OI
 private:
 	Joystick *stick;
 	JoystickButton* buttons[10];
+	Compressor* comp;
+
 public:
 	OI();
 	Joystick* getJoystick();
+	Compressor* GetComp();
 };
 
 #endif

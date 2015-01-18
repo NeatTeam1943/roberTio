@@ -17,6 +17,6 @@ const int ELEVATOR_DOWN_SWITCH = 1;
 const int GRABBER_PISTONS_FIRST = 0;
 const int GRABBER_PISTONS_SECOND = 1;
 
-const int GRABBER_COMPRESSOR = 0;
+const int COMPRESSOR_CHANNEL = 0;
 
 #endif
