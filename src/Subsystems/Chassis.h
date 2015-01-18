@@ -12,7 +12,9 @@ public:
 	Chassis();
 	void InitDefaultCommand();
 	void Drive(float x, float y);
-	void ChassisJoystick(Joystick *stick);
+	void DriveJoystick(Joystick *stick);
+	void DriveJoystick2(Joystick *stick);
+	void CarDriveJoystick(Joystick *stick);
 };
 
 #endif

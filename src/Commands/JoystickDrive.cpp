@@ -10,7 +10,7 @@ void JoystickDrive::Initialize() {
 }
 
 void JoystickDrive::Execute() {
-	chassis->ChassisJoystick(stick);
+	chassis->DriveJoystick(stick);
 }
 
 bool JoystickDrive::IsFinished() {
