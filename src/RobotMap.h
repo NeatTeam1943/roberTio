@@ -3,6 +3,7 @@
 
 #include "WPILib.h"
 
+<<<<<<< HEAD
 /*const int CHASSIS_LEFT_MOTOR = 0
 const int CHASSIS_RIGHT_MOTOR = 1;
 const int ELEVATOR_MOTOR = 2;
@@ -18,6 +19,11 @@ const int CHASSIS_LEFT_MOTOR_CAN = 4;
 //const int GRABBER_MOTOR_CAN = 5;
 
 const int JOYSTICK_CHANNEL = 0;
+=======
+const uint32_t LEFT_MOTOR = 0;
+const uint32_t RIGHT_MOTOR = 1;
+const uint32_t CONTROLLER_CHANNEL = 0;
+>>>>>>> b083bdbb245c87a3bb3be1922a8b880e525d573d
 
 const int GRABBER_OPEN_SWITCH = 1;
 const int GRABBER_CLOSE_SWITCH = 0;

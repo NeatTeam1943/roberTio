@@ -9,6 +9,7 @@
 #include "Commands/Chassis/DriveRetarded.h"
 #include "Commands/SwitchCompState.h"
 
+<<<<<<< HEAD
 OI::OI() {
 	this->stick = new Joystick(JOYSTICK_CHANNEL);
 	for (int i = 0; i < 10; i++) {
@@ -31,6 +32,14 @@ OI::OI() {
 }
 
 Joystick* OI::getJoystick() {
+=======
+OI::OI()
+{
+	this->stick= new Xbox360(CONTROLLER_CHANNEL);
+}
+
+Xbox360* OI::getJoystick(){
+>>>>>>> b083bdbb245c87a3bb3be1922a8b880e525d573d
 	return this->stick;
 }
 
