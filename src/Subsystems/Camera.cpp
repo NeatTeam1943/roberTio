@@ -11,7 +11,7 @@ Camera::Camera() :
 }
 
 void Camera::InitDefaultCommand() {
-	SetDefaultCommand(new ControlCamera(CommandBase::oi->getJoystick()));
+	//SetDefaultCommand(new ControlCamera(CommandBase::oi->getJoystick()));
 }
 
 void Camera::LookUpDown(float value) {

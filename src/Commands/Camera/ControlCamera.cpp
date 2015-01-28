@@ -2,7 +2,7 @@
 
 ControlCamera::ControlCamera(Joystick* stick) {
 	Requires(camera);
-	this->stick = CommandBase::oi->getJoystick();
+	this->stick = stick;
 }
 
 // Called just before this Command runs the first time

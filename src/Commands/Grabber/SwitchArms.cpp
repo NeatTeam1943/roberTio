@@ -1,32 +1,30 @@
-#include "Close.h"
+#include "SwitchArms.h"
 
-Close::Close() {
+SwitchArms::SwitchArms() {
 	Requires(grabber);
 }
 
 // Called just before this Command runs the first time
-void Close::Initialize() {
-	SetTimeout(0.5);
-	//grabber->SetPistonsState(DoubleSolenoid::Value::kForward);
+void SwitchArms::Initialize() {
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Close::Execute() {
-
+void SwitchArms::Execute() {
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Close::IsFinished() {
-	return IsTimedOut();
+bool SwitchArms::IsFinished() {
+	return false;
 }
 
 // Called once after isFinished returns true
-void Close::End() {
+void SwitchArms::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Close::Interrupted() {
-	End();
+void SwitchArms::Interrupted() {
+
 }

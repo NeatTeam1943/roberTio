@@ -1,15 +1,17 @@
 #include "Elevator.h"
 #include "../RobotMap.h"
+#include "Commands/Elevator/ElevatorLiftByPOV.h"
 
 Elevator::Elevator() :
 		Subsystem("Elevator") {
-	this->motor = new Talon(ELEVATOR_MOTOR);
+	//this->motor = new Talon(ELEVATOR_MOTOR);
+	this->motor = new CANTalon(ELEVATOR_MOTOR_CAN);
 	this->upSwitch = new DigitalInput(ELEVATOR_UP_SWITCH);
 	this->downSwitch = new DigitalInput(ELEVATOR_DOWN_SWITCH);
 }
 
 void Elevator::InitDefaultCommand() {
-	SetDefaultCommand(0);
+	this->SetDefaultCommand(new ElevatorLiftByPOV(CommandBase::oi->getJoystick()));
 }
 
 void Elevator::Move(float power) {

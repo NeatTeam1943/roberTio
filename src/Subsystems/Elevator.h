@@ -1,18 +1,16 @@
 #ifndef Elevator_H
 #define Elevator_H
 
-#include "Commands/Subsystem.h"
+//#include "Commands/Subsystem.h"
 #include "WPILib.h"
 
-class Elevator: public Subsystem
-{
+class Elevator: public Subsystem {
 private:
 	DigitalInput *upSwitch;
 	DigitalInput *downSwitch;
-	Talon *motor;
+	//Talon *motor;
+	CANTalon *motor;
 
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
 public:
 	Elevator();
 	void InitDefaultCommand();

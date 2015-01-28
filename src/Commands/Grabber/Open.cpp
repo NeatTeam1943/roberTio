@@ -6,8 +6,8 @@ Open::Open() {
 
 // Called just before this Command runs the first time
 void Open::Initialize() {
-	SetTimeout(1);
-	grabber->SetPistonsState(DoubleSolenoid::Value::kReverse);
+	SetTimeout(0.5);
+	//grabber->SetPistonsState(DoubleSolenoid::Value::kReverse);
 }
 
 // Called repeatedly when this Command is scheduled to run

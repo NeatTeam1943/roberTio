@@ -6,8 +6,8 @@ Switch::Switch() {
 
 // Called just before this Command runs the first time
 void Switch::Initialize() {
-	SetTimeout(1);
-	grabber->SwitchPistonsState();
+	SetTimeout(0.5);
+	//grabber->SwitchPistonsState();
 }
 
 // Called repeatedly when this Command is scheduled to run

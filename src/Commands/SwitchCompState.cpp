@@ -1,32 +1,37 @@
-#include "Close.h"
+#include "SwitchCompState.h"
 
-Close::Close() {
-	Requires(grabber);
+SwitchCompState::SwitchCompState()
+{
 }
 
 // Called just before this Command runs the first time
-void Close::Initialize() {
-	SetTimeout(0.5);
-	//grabber->SetPistonsState(DoubleSolenoid::Value::kForward);
+void SwitchCompState::Initialize()
+{
+	SetTimeout(0.3);
+	//oi->SwitchComp(!oi->IsCompOn());
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Close::Execute() {
+void SwitchCompState::Execute()
+{
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Close::IsFinished() {
-	return IsTimedOut();
+bool SwitchCompState::IsFinished()
+{
+	return false;
 }
 
 // Called once after isFinished returns true
-void Close::End() {
+void SwitchCompState::End()
+{
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Close::Interrupted() {
-	End();
+void SwitchCompState::Interrupted()
+{
+
 }

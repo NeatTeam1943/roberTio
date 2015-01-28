@@ -10,12 +10,15 @@ class OI
 private:
 	Joystick *stick;
 	JoystickButton* buttons[10];
-	Compressor* comp;
+	//Compressor* comp;
 
 public:
 	OI();
 	Joystick* getJoystick();
-	Compressor* GetComp();
+	//Compressor* GetComp();
+	JoystickButton** GetButtons();
+	//void SwitchComp(bool isOn);
+	//bool IsCompOn();
 };
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef JoystickDrive_H
 #define JoystickDrive_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class JoystickDrive: public CommandBase

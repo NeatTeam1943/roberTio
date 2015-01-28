@@ -1,32 +1,30 @@
-#include "Close.h"
+#include "OpenArms.h"
 
-Close::Close() {
+OpenArms::OpenArms() {
 	Requires(grabber);
 }
 
 // Called just before this Command runs the first time
-void Close::Initialize() {
-	SetTimeout(0.5);
-	//grabber->SetPistonsState(DoubleSolenoid::Value::kForward);
+void OpenArms::Initialize() {
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Close::Execute() {
-
+void OpenArms::Execute() {
+	grabber->SetMotorPower(0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Close::IsFinished() {
-	return IsTimedOut();
+bool OpenArms::IsFinished() {
+	return grabber->IsOpen();
 }
 
 // Called once after isFinished returns true
-void Close::End() {
-
+void OpenArms::End() {
+	grabber->SetMotorPower(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Close::Interrupted() {
+void OpenArms::Interrupted() {
 	End();
 }

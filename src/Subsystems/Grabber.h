@@ -2,19 +2,28 @@
 #define Grabber_H
 
 #include "Commands/Subsystem.h"
-#include "../CommandBase.h"
 #include "WPILib.h"
 
 class Grabber: public Subsystem {
 private:
-	DoubleSolenoid *pistons;
+	//DoubleSolenoid *pistons;
+	//CANTalon *motor;
+	Talon *motor;
+	DigitalInput *openS;
+	DigitalInput *closeS;
 
 public:
 	Grabber();
 	void InitDefaultCommand();
-	void SetPistonsState(DoubleSolenoid::Value value);
-	void SwitchPistonsState();
-	DoubleSolenoid::Value GetPistonsState();
+	void SetMotorPower(float power);
+	bool IsOpen();
+	bool IsClose();
+
+	/*
+	 void SetPistonsState(DoubleSolenoid::Value value);
+	 void SwitchPistonsState();
+	 DoubleSolenoid::Value GetPistonsState();
+	 */
 };
 
 #endif

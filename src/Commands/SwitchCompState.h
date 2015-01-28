@@ -1,15 +1,13 @@
-#ifndef CarJoystickDrive_H
-#define CarJoystickDrive_H
+#ifndef SwitchCompState_H
+#define SwitchCompState_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class CarJoystickDrive: public CommandBase
+class SwitchCompState: public CommandBase
 {
-private:
-	Joystick* stick;
 public:
-	CarJoystickDrive(Joystick* stick);
+	SwitchCompState();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
