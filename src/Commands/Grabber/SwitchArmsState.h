@@ -1,13 +1,16 @@
-#ifndef SwitchCompState_H
-#define SwitchCompState_H
+#ifndef SwitchArmsState_H
+#define SwitchArmsState_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class SwitchCompState: public CommandBase
+class SwitchArmsState: public CommandBase
 {
+private:
+	bool isToOpen;
+
 public:
-	SwitchCompState();
+	SwitchArmsState();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

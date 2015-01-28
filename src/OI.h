@@ -9,7 +9,6 @@
 class OI
 {
 private:
-<<<<<<< HEAD
 	Joystick *stick;
 	JoystickButton* buttons[10];
 	//Compressor* comp;
@@ -17,16 +16,10 @@ private:
 public:
 	OI();
 	Joystick* getJoystick();
-	//Compressor* GetComp();
 	JoystickButton** GetButtons();
+	//Compressor* GetComp();
 	//void SwitchComp(bool isOn);
 	//bool IsCompOn();
-=======
-	Xbox360 *stick;
-public:
-	OI();
-	Xbox360* getJoystick();
->>>>>>> b083bdbb245c87a3bb3be1922a8b880e525d573d
 };
 
 #endif

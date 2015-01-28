@@ -5,17 +5,12 @@
 #include "../RobotMap.h"
 
 Chassis::Chassis() :
-<<<<<<< HEAD
 		Subsystem("Chassis") {
 	this->left = new CANTalon(CHASSIS_LEFT_MOTOR_CAN);
 	this->right = new CANTalon(CHASSIS_RIGHT_MOTOR_CAN);
 	this->drive = new RobotDrive(this->left, this->right);
 	this->centerMotor = new CANTalon(CHASSIS_CENTER_MOTOR_CAN);
 	this->ps = new DigitalInput(CHASSIS_SWITCH);
-=======
-	Subsystem("Chassis") {
-	this->drive = new RobotDrive(RIGHT_MOTOR, LEFT_MOTOR);
->>>>>>> b083bdbb245c87a3bb3be1922a8b880e525d573d
 }
 
 void Chassis::InitDefaultCommand() {
@@ -25,12 +20,7 @@ void Chassis::InitDefaultCommand() {
 }
 
 void Chassis::Drive(float x, float y) {
-<<<<<<< HEAD
-	this->drive->ArcadeDrive(y, x, false);
-=======
 	drive->ArcadeDrive(y, x, false);
-
->>>>>>> b083bdbb245c87a3bb3be1922a8b880e525d573d
 }
 
 void Chassis::DriveJoystick(Joystick *stick) {
