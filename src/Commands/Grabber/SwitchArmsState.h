@@ -1,7 +1,7 @@
 #ifndef SwitchArmsState_H
 #define SwitchArmsState_H
 
-#include "../CommandBase.h"
+#include "../../CommandBase.h"
 #include "WPILib.h"
 
 class SwitchArmsState: public CommandBase

@@ -5,8 +5,8 @@ Grabber::Grabber() :
 		Subsystem("Grabber") {
 	//this->pistons = new DoubleSolenoid(GRABBER_PISTONS_FIRST,
 	//	GRABBER_PISTONS_SECOND);
-	//this->motor = new CANTalon(GRABBER_MOTOR_CAN);
-	this->motor = new Talon(GRABBER_MOTOR_CHANNEL);
+	this->motor = new CANTalon(GRABBER_MOTOR_CAN);
+	//this->motor = new Talon(GRABBER_MOTOR_CHANNEL);
 	this->openS = new DigitalInput(GRABBER_OPEN_SWITCH);
 	this->closeS = new DigitalInput(GRABBER_CLOSE_SWITCH);
 }

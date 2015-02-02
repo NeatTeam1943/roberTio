@@ -17,11 +17,13 @@ public:
 	Chassis();
 	void InitDefaultCommand();
 	void Drive(float x, float y);
-	void SetCenterPower(float power);
+	void SetCenterPower(float axis);
 	void DriveJoystick(Joystick *stick);
 	void DriveRightStick(Joystick *stick);
-	void DriveForward(float power);
+	void DriveForward(float axis);
 	void CarDriveJoystick(Joystick *stick);
+	void DriveCombined(Joystick *stick);
+	void TurnInPlace(float axis);
 	bool GetPhotoSwitch();
 };
 

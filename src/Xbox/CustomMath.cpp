@@ -256,6 +256,7 @@ double CustomMath::custom_root(double x, double root) {
 		}
 		zo = z;
 	}
+	return 0;
 }
 
 /* Operand Functions */

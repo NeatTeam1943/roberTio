@@ -1,4 +1,3 @@
-#include <Commands/Chassis/CarJoystickDrive.h>
 #include <Commands/Chassis/JoystickDrive.h>
 #include "Chassis.h"
 #include "../CommandBase.h"
@@ -14,9 +13,8 @@ Chassis::Chassis() :
 }
 
 void Chassis::InitDefaultCommand() {
-//	this->SetDefaultCommand(
-//			new CarJoystickDrive(CommandBase::oi->getJoystick()));
-	this->SetDefaultCommand(new JoystickDrive(CommandBase::oi->getJoystick()));
+	this->SetDefaultCommand(
+		new JoystickDrive(CommandBase::oi->getJoystick()));
 }
 
 void Chassis::Drive(float x, float y) {
@@ -25,18 +23,18 @@ void Chassis::Drive(float x, float y) {
 
 void Chassis::DriveJoystick(Joystick *stick) {
 	float x = 0, y = 0;
-	if (-stick->GetY() > 0.1 || -stick->GetY() < -0.1)
+	if (stick->GetY() > 0.2 || stick->GetY() < -0.2)
 		y = -stick->GetY();
-	if (stick->GetX() > 0.1 || stick->GetX() < -0.1)
-		x = stick->GetX();
+	if (stick->GetX() > 0.2 || stick->GetX() < -0.2)
+		x = -stick->GetX();
 	this->drive->ArcadeDrive(y, x, false);
 }
 
 void Chassis::DriveRightStick(Joystick *stick) {
 	float x = 0, y = 0;
-	if (-stick->GetRawAxis(5) > 0.1 || -stick->GetRawAxis(5) < -0.1)
-		y = -stick->GetRawAxis(5);
-	if (stick->GetRawAxis(4) > 0.1 || stick->GetRawAxis(4) < -0.1)
+	if (stick->GetRawAxis(5) > 0.2 || -stick->GetRawAxis(5) < -0.2)
+		y = stick->GetRawAxis(5);
+	if (stick->GetRawAxis(4) > 0.2 || -stick->GetRawAxis(4) < -0.2)
 		x = stick->GetRawAxis(4);
 	this->drive->ArcadeDrive(y, x, false);
 }
@@ -46,15 +44,32 @@ void Chassis::DriveForward(float power) {
 	this->right->Set(power);
 }
 
-void Chassis::CarDriveJoystick(Joystick *stick) {
-	if (stick->GetThrottle() > 0)
-		this->drive->ArcadeDrive(stick->GetThrottle(), stick->GetX(), false);
-	else
-		this->drive->ArcadeDrive(stick->GetZ(), stick->GetX(), false);
+void Chassis::DriveCombined(Joystick *stick) {
+	float forward, sides;
+	if (stick->GetY() > 0.2 || stick->GetY() < -0.2)
+		forward = stick->GetY();
+	else forward = 0;
+	if (stick->GetX() > 0.2 || stick->GetX() < -0.2)
+		sides = stick->GetX() * 0.75;
+	else sides = 0;
+
+	this->left->Set(forward);
+	this->right->Set(forward);
+	this->centerMotor->Set(sides);
+}
+
+void Chassis::TurnInPlace(float axis) {
+	if (axis > 0.1 || axis < -0.1) {
+		this->left->Set(axis);
+		this->right->Set(-axis);
+	}
 }
 
 void Chassis::SetCenterPower(float power) {
-	this->centerMotor->Set(power);
+	if (power > 0.2 || power < -0.2)
+		this->centerMotor->Set(-power);
+	else
+		this->centerMotor->Set(0);
 }
 
 bool Chassis::GetPhotoSwitch() {

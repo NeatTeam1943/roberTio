@@ -4,6 +4,8 @@
 #include "Commands/Elevator/Lift.h"
 #include "Commands/Elevator/Lower.h"
 #include "Commands/Grabber/SwitchArmsState.h"
+#include "Commands/Grabber/OpenArms.h"
+#include "Commands/Grabber/CloseArms.h"
 #include "Commands/Chassis/DriveRetarded.h"
 
 OI::OI() {
@@ -12,11 +14,13 @@ OI::OI() {
 		this->buttons[i] = new JoystickButton(this->stick, i + 1);
 	}
 
-	this->buttons[0]->WhenPressed(new SwitchArmsState()); // 'A' Button
+	this->buttons[0]->WhenPressed(new OpenArms()); // 'A' Button
+	this->buttons[1]->WhenPressed(new CloseArms()); // 'B' Button
+
+	//this->buttons[0]->WhenPressed(new SwitchArmsState()); // 'A' Button
 
 	this->buttons[4]->WhileHeld(new Lower()); // 'LB' Button
 	this->buttons[5]->WhileHeld(new Lift()); // 'RB' Button
-
 }
 
 Joystick* OI::getJoystick(){

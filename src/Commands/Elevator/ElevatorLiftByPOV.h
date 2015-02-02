@@ -7,6 +7,7 @@
 class ElevatorLiftByPOV: public CommandBase {
 private:
 	Joystick* stick;
+
 public:
 	ElevatorLiftByPOV(Joystick* stick);
 	void Initialize();

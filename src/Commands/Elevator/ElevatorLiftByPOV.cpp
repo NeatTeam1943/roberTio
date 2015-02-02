@@ -2,22 +2,28 @@
 ElevatorLiftByPOV::ElevatorLiftByPOV(Joystick* stick) {
 	Requires(elevator);
 	this->stick = stick;
-	// eg. Requires(chassis);
 }
 
 // Called just before this Command runs the first time
 void ElevatorLiftByPOV::Initialize() {
-	//elevator->motor->
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ElevatorLiftByPOV::Execute() {
-	if (!(elevator->GetUpSwitch() || elevator->GetDownSwitch())) {
-		if (stick->GetPOV() < 90 || stick->GetPOV() > 270)
-			elevator->Move(0.5);
-		else if (stick->GetPOV() > 90 && stick->GetPOV() < 270)
-			elevator->Move(-0.5);
+	if (stick->GetPOV() == 0) { // go up
+		if (!elevator->GetUpSwitch())
+			elevator->Move(1);
+		else
+			elevator->Move(0);
 	}
+	else if (stick->GetPOV() == 180) { // go down
+		if (!elevator->GetDownSwitch())
+			elevator->Move(-1);
+		else
+			elevator->Move(0);
+	}
+	else
+		elevator->Move(0);
 }
 
 // Make this return true when this Command no longer needs to run execute()

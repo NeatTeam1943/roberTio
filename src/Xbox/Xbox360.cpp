@@ -3,7 +3,7 @@
 #include "XboxMap.h"
 
 /**
- * Creates an object to interace with an Xbox 360 controller
+ * Creates an object to interact with an Xbox 360 controller
  *
  * @param port The port on the drivers station that the controller is connected to
  */
@@ -345,6 +345,23 @@ JoystickButton* Xbox360::GetRightBumper() {
 	return (new JoystickButton(this, RIGHT_BUMPER));
 }
 
+/*
+ * Get Left Stick Button
+ *
+ * @return Left Stick Button
+ */
+JoystickButton* Xbox360::GetLeftStickButton() {
+	return new JoystickButton(this, LEFT_STICK_BUTTON);
+}
+
+/*
+ * Get Right Stick Button
+ *
+ * @return Left Stick Button
+ */
+JoystickButton* Xbox360::GetRightStickButton() {
+	return new JoystickButton(this, RIGHT_STICK_BUTTON);
+}
 ////////////////End Raw Button Methods for Command/Subsystem Interface
 
 /**

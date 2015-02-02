@@ -48,6 +48,8 @@ public:
 	JoystickButton* GetBackButton();
 	JoystickButton* GetLeftBumper();
 	JoystickButton* GetRightBumper();
+	JoystickButton* GetLeftStickButton();
+	JoystickButton* GetRightStickButton();
 
 	//Get Button Values Manually
 	bool GetAValue();
@@ -58,6 +60,8 @@ public:
 	bool GetRightBumperValue();
 	bool GetBackValue();
 	bool GetStartValue();
+	bool GetLeftStickButtonValue();
+	bool GetRightStickButtonValue();
 
 	//Custom Get Angle Methods
 	double GetLeftAngle(bool reflectCircle);

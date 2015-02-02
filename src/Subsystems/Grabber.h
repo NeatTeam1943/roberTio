@@ -7,8 +7,8 @@
 class Grabber: public Subsystem {
 private:
 	//DoubleSolenoid *pistons;
-	//CANTalon *motor;
-	Talon *motor;
+	CANTalon *motor;
+	//Talon *motor;
 	DigitalInput *openS;
 	DigitalInput *closeS;
 

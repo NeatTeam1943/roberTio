@@ -6,16 +6,17 @@ CloseArms::CloseArms() {
 
 // Called just before this Command runs the first time
 void CloseArms::Initialize() {
+	SetTimeout(0.5);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void CloseArms::Execute() {
-	grabber->SetMotorPower(-0.5);
+	grabber->SetMotorPower(0.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool CloseArms::IsFinished() {
-	return grabber->IsClose();
+	return grabber->IsClose() || IsTimedOut();
 }
 
 // Called once after isFinished returns true
