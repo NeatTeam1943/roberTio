@@ -7,18 +7,17 @@ Chassis::Chassis() :
 		Subsystem("Chassis") {
 	this->left = new CANTalon(CHASSIS_LEFT_MOTOR_CAN);
 	this->right = new CANTalon(CHASSIS_RIGHT_MOTOR_CAN);
-	this->drive = new RobotDrive(this->left, this->right);
+	//this->drive = new RobotDrive(this->left, this->right);
 	this->centerMotor = new CANTalon(CHASSIS_CENTER_MOTOR_CAN);
 	this->ps = new DigitalInput(CHASSIS_SWITCH);
 }
 
 void Chassis::InitDefaultCommand() {
-	this->SetDefaultCommand(
-		new JoystickDrive(CommandBase::oi->getJoystick()));
+	this->SetDefaultCommand(new JoystickDrive(CommandBase::oi->getJoystick()));
 }
 
 void Chassis::Drive(float x, float y) {
-	drive->ArcadeDrive(y, x, false);
+	//drive->ArcadeDrive(y, x, false);
 }
 
 void Chassis::DriveJoystick(Joystick *stick) {
@@ -27,7 +26,7 @@ void Chassis::DriveJoystick(Joystick *stick) {
 		y = -stick->GetY();
 	if (stick->GetX() > 0.2 || stick->GetX() < -0.2)
 		x = -stick->GetX();
-	this->drive->ArcadeDrive(y, x, false);
+	//this->drive->ArcadeDrive(y, x, false);
 }
 
 void Chassis::DriveRightStick(Joystick *stick) {
@@ -36,7 +35,23 @@ void Chassis::DriveRightStick(Joystick *stick) {
 		y = stick->GetRawAxis(5);
 	if (stick->GetRawAxis(4) > 0.2 || -stick->GetRawAxis(4) < -0.2)
 		x = stick->GetRawAxis(4);
-	this->drive->ArcadeDrive(y, x, false);
+	//this->drive->ArcadeDrive(y, x, false);
+}
+
+void Chassis::DriveCombined(Joystick *stick) {
+	if (stick->GetY() > 0.15 || stick->GetY() < -0.15) {
+		this->left->Set(-stick->GetY());
+		this->right->Set(stick->GetY());
+	} else {
+		this->left->Set(0);
+		this->right->Set(0);
+	}
+	if (stick->GetX() > 0.15 || stick->GetX() < -0.15) {
+		this->centerMotor->Set(-stick->GetX());
+	} else {
+		this->centerMotor->Set(0);
+	}
+
 }
 
 void Chassis::DriveForward(float power) {
@@ -44,25 +59,27 @@ void Chassis::DriveForward(float power) {
 	this->right->Set(power);
 }
 
-void Chassis::DriveCombined(Joystick *stick) {
-	float forward, sides;
-	if (stick->GetY() > 0.2 || stick->GetY() < -0.2)
-		forward = stick->GetY();
-	else forward = 0;
-	if (stick->GetX() > 0.2 || stick->GetX() < -0.2)
-		sides = stick->GetX() * 0.75;
-	else sides = 0;
+void Chassis::TurnInPlace(Joystick *stick) {
 
-	this->left->Set(forward);
-	this->right->Set(forward);
-	this->centerMotor->Set(sides);
-}
-
-void Chassis::TurnInPlace(float axis) {
-	if (axis > 0.1 || axis < -0.1) {
+	float axis = stick->GetRawAxis(4);
+	if (axis > 0.15 || axis < -0.15) {
 		this->left->Set(axis);
-		this->right->Set(-axis);
+		this->right->Set(axis);
 	}
+	/*
+	if (stick->GetPOV() == 90) {
+		this->left->Set(0.75);
+		this->right->Set(0.75); // goes back
+	}
+	else if (stick->GetPOV() == 270) {
+		this->left->Set(-0.75);
+		this->right->Set(-0.75);
+	}
+	else {
+		this->left->Set(0);
+		this->right->Set(0);
+	}
+	*/
 }
 
 void Chassis::SetCenterPower(float power) {
