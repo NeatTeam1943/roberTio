@@ -9,8 +9,9 @@ class Chassis: public Subsystem
 private:
 	CANTalon *left;
 	CANTalon *right;
-	//RobotDrive * drive;
-	CANTalon *centerMotor;
+	RobotDrive * drive;
+	CANTalon *centerMotor1;
+	CANTalon *centerMotor2;
 	DigitalInput *ps; //  photoSwitch
 
 public:
@@ -23,7 +24,6 @@ public:
 	void DriveCombined(Joystick *stick);
 	void SetCenterPower(float axis);
 	void TurnInPlace(Joystick *stick);
-	void DriveForward(float axis);
 	bool GetPhotoSwitch();
 };
 

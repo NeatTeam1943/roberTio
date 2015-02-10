@@ -1,31 +1,36 @@
-#include "Lower.h"
+#include "DownSwitchSchnitzel.h"
 
-Lower::Lower() {
-	Requires(elevator);
+DownSwitchSchnitzel::DownSwitchSchnitzel()
+{
+	SetInterruptible(false);
 }
 
 // Called just before this Command runs the first time
-void Lower::Initialize() {
+void DownSwitchSchnitzel::Initialize()
+{
 	elevator->Move(0);
+	SetTimeout(0.1);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Lower::Execute() {
-	elevator->Move(-0.8);
+void DownSwitchSchnitzel::Execute()
+{
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Lower::IsFinished() {
-	return elevator->GetDownSwitch();
+bool DownSwitchSchnitzel::IsFinished()
+{
+	return false;
 }
 
 // Called once after isFinished returns true
-void Lower::End() {
-	elevator->Move(0);
+void DownSwitchSchnitzel::End()
+{
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Lower::Interrupted() {
-	End();
-}
+void DownSwitchSchnitzel::Interrupted()
+{	}

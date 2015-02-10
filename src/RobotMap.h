@@ -7,12 +7,12 @@
 const int CAMERA_SIDE_SERVO = 1;
 const int CAMERA_UP_SERVO = 2;
 
-const int GRABBER_MOTOR_CAN = 0;
-const int CHASSIS_CENTER_MOTOR_CAN =  1;
-
+const int CHASSIS_CENTER_MOTOR2_CAN = 0;
+const int CHASSIS_CENTER_MOTOR1_CAN = 1;
 const int CHASSIS_LEFT_MOTOR_CAN = 2;
 const int CHASSIS_RIGHT_MOTOR_CAN = 3;
 const int ELEVATOR_MOTOR_CAN = 4;
+const int GRABBER_MOTOR_CAN = 5;
 
 const int JOYSTICK_CHANNEL = 0;
 

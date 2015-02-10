@@ -1,4 +1,5 @@
 #include "Commands/Chassis/JoystickDrive.h"
+#include "Commands/CommandGroups/Autonomous.h"
 #include "WPILib.h"
 #include "Commands/Command.h"
 #include "CommandBase.h"
@@ -12,7 +13,7 @@ private:
 	void RobotInit()
 	{
 		CommandBase::init();
-		//autonomousCommand = new ();
+		//autonomousCommand = new Autonomous();
 		lw = LiveWindow::GetInstance();
 		SmartDashboard::PutString("name", "value");
 	}
@@ -51,4 +52,3 @@ private:
 };
 
 START_ROBOT_CLASS(Robot);
-

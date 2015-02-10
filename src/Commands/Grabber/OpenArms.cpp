@@ -6,12 +6,12 @@ OpenArms::OpenArms() {
 
 // Called just before this Command runs the first time
 void OpenArms::Initialize() {
-	SetTimeout(0.5);
+	SetTimeout(1.5);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void OpenArms::Execute() {
-	grabber->SetMotorPower(-0.5);
+	grabber->SetMotorPower(0.2);
 }
 
 // Make this return true when this Command no longer needs to run execute()

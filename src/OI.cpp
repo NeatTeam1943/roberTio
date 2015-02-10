@@ -16,10 +16,10 @@ OI::OI() {
 	this->buttons[0]->WhenPressed(new OpenArms()); // 'A' Button
 	this->buttons[1]->WhenPressed(new CloseArms()); // 'B' Button
 
-	//this->buttons[0]->WhenPressed(new SwitchArmsState()); // 'A' Button
+//	this->buttons[0]->WhenPressed(new SwitchArmsState()); // 'A' Button
 
-	this->buttons[4]->WhileHeld(new Lower()); // 'LB' Button
-	this->buttons[5]->WhileHeld(new Lift()); // 'RB' Button
+//	this->buttons[4]->WhileHeld(new Lower()); // 'LB' Button
+//	this->buttons[5]->WhileHeld(new Lift()); // 'RB' Button
 }
 
 Joystick* OI::getJoystick(){

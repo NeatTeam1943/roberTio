@@ -10,19 +10,15 @@ void JoystickDrive::Initialize() {
 }
 
 void JoystickDrive::Execute() {
-	/*if (-stick->GetRawAxis(3) > 0.3) {
-	 if (chassis->GetPhotoSwitch())
-	 Wait(3);
-	 else {
-	 chassis->DriveForward(-stick->GetRawAxis(3));
-	 }
-	 } else {
-
-	 chassis->DriveJoystick(stick);
-	 chassis->SetCenterPower(stick->GetRawAxis(4));
-	 */
-	chassis->DriveCombined(stick);
-	chassis->TurnInPlace(stick);
+	/*if (stick->GetRawAxis(3) > 0.3 && !chassis->GetPhotoSwitch()) {
+		chassis->Drive(stick->GetRawAxis(3), 0);
+	} else {*/
+		chassis->SetCenterPower(stick->GetRawAxis(4));
+		chassis->DriveJoystick(stick);
+		/*
+		 chassis->DriveCombined(stick);
+		 chassis->TurnInPlace(stick);
+		 */
 	//}
 }
 

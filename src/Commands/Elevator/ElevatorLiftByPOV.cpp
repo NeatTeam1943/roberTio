@@ -15,14 +15,13 @@ void ElevatorLiftByPOV::Execute() {
 			elevator->Move(1);
 		else
 			elevator->Move(0);
-	}
-	else if (stick->GetPOV() == 180) { // go down
+	} else if (stick->GetPOV() == 180) { // go down
 		if (!elevator->GetDownSwitch())
 			elevator->Move(-1);
-		else
+		else {
 			elevator->Move(0);
-	}
-	else
+		}
+	} else
 		elevator->Move(0);
 }
 

@@ -14,7 +14,7 @@ void Lift::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void Lift::Execute()
 {
-	elevator->Move(0.5);
+	elevator->Move(0.8);
 }
 
 // Make this return true when this Command no longer needs to run execute()
