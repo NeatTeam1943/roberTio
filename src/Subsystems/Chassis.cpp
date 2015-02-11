@@ -1,3 +1,4 @@
+#include <Commands/CommandGroups/DriveParallel.h>
 #include <Commands/Chassis/JoystickDrive.h>
 #include "Chassis.h"
 #include "../CommandBase.h"
@@ -14,7 +15,8 @@ Chassis::Chassis() :
 }
 
 void Chassis::InitDefaultCommand() {
-	this->SetDefaultCommand(new JoystickDrive(CommandBase::oi->getJoystick()));
+	SetDefaultCommand(new JoystickDrive(CommandBase::oi->getJoystick()));
+	//SetDefaultCommand(new DriveParallel(CommandBase::oi->getJoystick()));
 }
 
 void Chassis::Drive(float move, float rotation) {
